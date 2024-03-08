@@ -26,15 +26,17 @@ const images = [
 ];
 
 const ulElement = document.querySelector(".gallery");
-const createImgElements = (image) => {
+images.map((image) => {
   const createLiElement = document.createElement("li");
-  createLiElement.classList.add("gallery-items");
+  createLiElement.classList.add("gallegy-item");
   const imgElement = document.createElement("img");
-  imgElement.classList.add("gallery-image");
-  const imgUrl = document.createElement("url");
-  imgUrl.url = images.url;
-  const imgAlt = document.createElement("Alt");
-  imgAlt.alt = images.alt;
-  createLiElement.append(imgElement, imgUrl, imgAlt);
-  return createLiElement;
-};
+  imgElement.getAttribute("src");
+  imgElement.src = image.url;
+  imgElement.getAttribute("alt");
+  imgElement.alt = image.alt;
+  imgElement.setAttribute("width", 360);
+  imgElement.setAttribute("height", 300);
+
+  createLiElement.appendChild(imgElement);
+  ulElement.appendChild(createLiElement);
+});
