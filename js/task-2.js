@@ -38,6 +38,4 @@ const createImgElements = (image) => {
   createLiElement.append(imgElement, imgUrl, imgAlt);
   return createLiElement;
 };
-const newImages = images.map(createImgElements).join();
-
-console.log(newImages);
+const newImages = images.map(createImgElements);
