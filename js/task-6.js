@@ -4,29 +4,39 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 function createBoxes(amount) {
-  const boxContainer = document.querySelector("#boxes");
-  const baseSize = 30;
-  const step = 10;
+  const boxesContainer = document.querySelector("#boxes");
   if (amount < 1 || amount > 100) {
-    console.error("Введіть число від 1 до 100");
+    console.log("Введіть число від 1 до 100");
     return;
   }
-
-  boxContainer.innerHTML = " ";
+  const baseSize = 30;
+  const step = 10;
+  boxesContainer.innerHTML = " ";
 
   for (let i = 0; i < amount; i++) {
     const box = document.createElement("div");
-    const size = baseSize + i * step;
 
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
-    boxContainer.appendChild(box);
+    box.style.width = `${baseSize + i * step}px`;
+    box.style.height = `${baseSize + i * step}px`;
+    box.style.backgroundColor = getRandomHexColor();
+    boxesContainer.appendChild(box);
   }
 }
 function destroyBoxes() {
   const boxesContainer = document.querySelector("#boxes");
   boxesContainer.innerHTML = "";
 }
+
 const createButton = document.querySelector("[data-create]");
 const destroyButton = document.querySelector("[data-destroy]");
 const input = document.querySelector("input");
+
+createButton.addEventListener("click", () => {
+  const amount = Number(input.value);
+  if (amount >= 1 && amount <= 100) {
+    createBoxes(amount);
+  } else {
+    console.log("Введіть число від 1 до 100");
+  }
+});
+destroyButton.addEventListener("click", destroyBoxes);
