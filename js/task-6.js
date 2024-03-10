@@ -9,13 +9,12 @@ function createBoxes(amount) {
     console.log("Введіть число від 1 до 100");
     return;
   }
+  createBoxes.innerHTML = "";
   const baseSize = 30;
   const step = 10;
-  boxesContainer.innerHTML = " ";
 
   for (let i = 0; i < amount; i++) {
     const box = document.createElement("div");
-
     box.style.width = `${baseSize + i * step}px`;
     box.style.height = `${baseSize + i * step}px`;
     box.style.backgroundColor = getRandomHexColor();

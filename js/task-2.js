@@ -25,18 +25,19 @@ const images = [
   },
 ];
 
-const ulElement = document.querySelector(".gallery");
-images.map((image) => {
-  const createLiElement = document.createElement("li");
-  createLiElement.classList.add("gallegy-item");
-  const imgElement = document.createElement("img");
-  imgElement.getAttribute("src");
-  imgElement.src = image.url;
-  imgElement.getAttribute("alt");
-  imgElement.alt = image.alt;
-  imgElement.setAttribute("width", 360);
-  imgElement.setAttribute("height", 300);
+const galleryUl = document.querySelector(".gallery");
+images.forEach((image) => {
+  const liEl = document.createElement("li");
+  liEl.classList.add("gallegy-item");
+  const imgEl = document.createElement("img");
+  imgEl.getAttribute("src");
+  imgEl.src = image.url;
+  imgEl.getAttribute("alt");
+  imgEl.alt = image.alt;
+  imgEl.setAttribute("width", 360);
+  imgEl.setAttribute("height", 300);
 
-  createLiElement.appendChild(imgElement);
-  ulElement.appendChild(createLiElement);
+  liEl.appendChild(imgEl);
+  galleryUl.appendChild(liEl);
 });
+console.log(galleryUl);

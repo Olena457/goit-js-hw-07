@@ -2,7 +2,7 @@ const loginFormEl = document.querySelector(".login-form");
 loginFormEl.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
-  event.preventDefolt();
+  event.preventDefault();
 
   const emailInput = loginFormEl.elements.email;
   const passwordInput = loginFormEl.elements.password;
