@@ -9,7 +9,7 @@ function createBoxes(amount) {
     console.log("Введіть число від 1 до 100");
     return;
   }
-  boxesContainer.innerHTML = "";
+
   const baseSize = 30;
   const step = 10;
 
@@ -21,19 +21,23 @@ function createBoxes(amount) {
     boxesContainer.appendChild(box);
   }
 }
+
 function destroyBoxes() {
   const boxesContainer = document.querySelector("#boxes");
   boxesContainer.innerHTML = "";
 }
-
 const createButton = document.querySelector("[data-create]");
 const destroyButton = document.querySelector("[data-destroy]");
 const input = document.querySelector("input");
+function clearInput() {
+  input.value = "";
+}
 
 createButton.addEventListener("click", () => {
   const amount = Number(input.value);
   if (amount >= 1 && amount <= 100) {
     createBoxes(amount);
+    clearInput();
   } else {
     console.log("Введіть число від 1 до 100");
   }
