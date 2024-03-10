@@ -21,26 +21,24 @@ function createBoxes(amount) {
     boxesContainer.appendChild(box);
   }
 }
-
 function destroyBoxes() {
   const boxesContainer = document.querySelector("#boxes");
   boxesContainer.innerHTML = "";
 }
 const createButton = document.querySelector("[data-create]");
 const destroyButton = document.querySelector("[data-destroy]");
+destroyButton.addEventListener("click", destroyBoxes);
+
 const input = document.querySelector("input");
-input.addEventListener("keydown", clearInput);
-function clearInput() {
-  input.value = "";
-}
+input.addEventListener("input", clearInput);
+function clearInput() {}
 
 createButton.addEventListener("click", () => {
   const amount = Number(input.value);
   if (amount >= 1 && amount <= 100) {
     createBoxes(amount);
-    clearInput();
   } else {
     console.log("Введіть число від 1 до 100");
   }
+  clearInput();
 });
-destroyButton.addEventListener("click", destroyBoxes);
