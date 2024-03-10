@@ -29,6 +29,7 @@ function destroyBoxes() {
 const createButton = document.querySelector("[data-create]");
 const destroyButton = document.querySelector("[data-destroy]");
 const input = document.querySelector("input");
+input.addEventListener("keydown", clearInput);
 function clearInput() {
   input.value = "";
 }
