@@ -9,7 +9,7 @@ function createBoxes(amount) {
     console.log("Введіть число від 1 до 100");
     return;
   }
-  createBoxes.innerHTML = "";
+  boxesContainer.innerHTML = "";
   const baseSize = 30;
   const step = 10;
 
