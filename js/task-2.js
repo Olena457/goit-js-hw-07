@@ -26,9 +26,10 @@ const images = [
 ];
 
 const galleryUl = document.querySelector(".gallery");
-images.forEach((image) => {
+const galleryItems = images.map((image) => {
   const liEl = document.createElement("li");
-  liEl.classList.add("gallegy-item");
+  liEl.classList.add("gallery-item");
+
   const imgEl = document.createElement("img");
   imgEl.getAttribute("src");
   imgEl.src = image.url;
@@ -38,6 +39,7 @@ images.forEach((image) => {
   imgEl.setAttribute("height", 300);
 
   liEl.appendChild(imgEl);
-  galleryUl.appendChild(liEl);
+  return liEl;
 });
+galleryUl.append(...galleryItems);
 console.log(galleryUl);
