@@ -35,9 +35,9 @@ function clearInput() {
   input.value = "";
 }
 
-const boxesContainer = document.querySelector("#boxes");
-boxesContainer.innerHTML = "";
 createButton.addEventListener("click", () => {
+  const boxesContainer = document.querySelector("#boxes");
+  boxesContainer.innerHTML = "";
   const amount = Number(input.value);
   if (amount >= 1 && amount <= 100) {
     createBoxes(amount);
