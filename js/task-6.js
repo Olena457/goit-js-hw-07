@@ -4,7 +4,6 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 function createBoxes(amount) {
-  const boxesContainer = document.querySelector("#boxes");
   if (amount < 1 || amount > 100) {
     console.log("Введіть число від 1 до 100");
     return;
@@ -27,12 +26,17 @@ function destroyBoxes() {
 }
 const createButton = document.querySelector("[data-create]");
 const destroyButton = document.querySelector("[data-destroy]");
+
 destroyButton.addEventListener("click", destroyBoxes);
 
 const input = document.querySelector("input");
-input.addEventListener("input", clearInput);
-function clearInput() {}
 
+function clearInput() {
+  input.value = "";
+}
+
+const boxesContainer = document.querySelector("#boxes");
+boxesContainer.innerHTML = "";
 createButton.addEventListener("click", () => {
   const amount = Number(input.value);
   if (amount >= 1 && amount <= 100) {
